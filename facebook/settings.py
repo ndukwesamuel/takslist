@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0ebant+4!-bt-i8su@uhkha^v6q%g!62x0apgm#*q7=4iy=h$2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [  'facebook20.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['facebook20.herokuapp.com', '127.0.0.1', '*']
 
 
 # Application definition
@@ -38,14 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
+    "corsheaders",
     'home'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+
+      "corsheaders.middleware.CorsMiddleware",
+
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,6 +127,10 @@ USE_TZ = True
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # STATICFILES_DIRS = [
